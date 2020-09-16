@@ -8,7 +8,7 @@
         <h2>{{ $post->title }}</h2>
 
         <div>
-          <img src="{{ $post->image_url }}" alt="">
+          <img src="{{ asset('storage') . '/' .  $post->image_url }}" alt="">
         </div>
 
         <div>

@@ -8,7 +8,7 @@ class Post extends Model
 {
     protected $fillable = [
       'user_id',
-      'image_path',
+      'image_url',
       'title',
       'content'
     ];

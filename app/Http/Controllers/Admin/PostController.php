@@ -31,7 +31,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.create');
     }
 
     /**
@@ -42,7 +42,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $path = $request->file('image_url')->store('images','public');
+
+        $new_post = new Post();
+        $new_post->user_id = Auth::id();
+        $new_post->title = $data['title'];
+        $new_post->content = $data['content'];
+        $new_post->image_url = $path;
+        $new_post->save();
+
+        return redirect()->route('show', $new_post);
     }
 
     /**
